@@ -71,14 +71,15 @@ class Patients:
                 id = input("Enter user ID: ")
 
                 # searching for user in json file
-                if json_data[id] == id:
+                if id in json_data:
                     os.system("cls")
-                    print
-                    print(f"ID: {json_data["id"]}")
-                    print(f"Name: {json_data["name"]}")
-                    print(f"DOB: {json_data["DOB"]}")
-                    print(f"Type: {json_data["type"]}")
-                    print(f"Status: {json_data["status"]}")
+                    print("="*30)
+                    print(f"ID: {json_data[id]["id"]}")
+                    print(f"Name: {json_data[id]["name"]}")
+                    print(f"DOB: {json_data[id]["DOB"]}")
+                    print(f"Type: {json_data[id]["type"]}")
+                    print(f"Status: {json_data[id]["status"]}")
+                    print("="*30)
                 else:
                     os.system("cls")
                     print()

@@ -16,11 +16,14 @@ def main():
 
 
     # admin login
+    print("="*30)
+    print("Admin Login")
+    print("="*30)
     adminUser = input("Admin Username: ")
     adminPass = input("Admin Password: ").encode()
 
     # file path
-    filePath = "C:/Users/USER/Desktop/mini_project/project/hospital/admin.json"  
+    filePath = """C:/Users/USER/Desktop/mini_project/project/hospital_management_system/admin.json"""
 
     # reading from a json file
     with open(filePath, "r") as admin:

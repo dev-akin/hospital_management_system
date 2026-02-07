@@ -3,7 +3,7 @@ import os
 from datetime import date, datetime
 
 class Patients:
-    def __init__(self, ID = 0, name = "gusest", age = "2001-01-01", typ = "default", status = False):
+    def __init__(self, ID = 0, name = "gusest", age = "0000-00-00", typ = "default", status = False):
         self.ID = ID
         self.name = name
         self.age = age
@@ -12,9 +12,9 @@ class Patients:
         
     def patients(self):
         # file path
-        filePath = "C:/Users/USER/Desktop/mini_project/project/hospital/patients.json"  
+        filePath = """C:/Users/USER/Desktop/mini_project/project/hospital_management_system/patients.json"""  
 
-        # data to be written in json file 
+        # data to be written in json file  
         data = {
             "id"    : self.ID,
             "name"  : self.name,
@@ -22,20 +22,22 @@ class Patients:
             "type"  : self.typ,
             "status": self.status
         }
+
+        # give the data a key
         
         # checking if file exists and is not empty
-        f = []
+        f = {}
         if os.path.exists(filePath) and os.path.getsize(filePath) > 0:
             with open(filePath, "r") as reader:
                 try:
                     f = json.load(reader)
                 except(FileExistsError, json.JSONDecodeError):
-                    f = []
+                    f = {}
         else:
-            f = []
+            f = {}
 
         # appending data to the list
-        f.append(data)
+        f[str(self.ID)] = data
 
         # writing to json file
         with open(filePath, "w") as writer:
@@ -48,8 +50,7 @@ class Patients:
     def viewPatient(self):
 
         # file path
-        filePath = "C:/Users/USER/Desktop/mini_project/project/hospital/patients.json"
-         
+        filePath = """C:/Users/USER/Desktop/mini_project/project/hospital_management_system/patients.json""" 
         # reading from a json file
         with open(filePath, "r") as reader:
             json_data = json.load(reader)
@@ -63,31 +64,32 @@ class Patients:
             inp = int(input("Option: "))
             print("="*30)
             print()
+
             
             # validating user input
             if inp == 1:
-                id = int(input("Enter user ID: "))
+                id = input("Enter user ID: ")
 
                 # searching for user in json file
-                for i in json_data:
-                    if i["id"] == id:
-                        print(f"ID: {i["id"]}")
-                        print(f"Name: {i["name"]}")
-                        print(f"DOB: {i["DOB"]}")
-                        print(f"Type: {i["type"]}")
-                        print(f"Status: {i["status"]}")
-                        break
-                # if user is not found in json file
+                if json_data[id] == id:
+                    os.system("cls")
+                    print
+                    print(f"ID: {json_data["id"]}")
+                    print(f"Name: {json_data["name"]}")
+                    print(f"DOB: {json_data["DOB"]}")
+                    print(f"Type: {json_data["type"]}")
+                    print(f"Status: {json_data["status"]}")
                 else:
-                    if i["id"] != id:
-                        print()
-                        print("="*20)
-                        print("No record found")
-                        print("="*20)
+                    os.system("cls")
+                    print()
+                    print("="*20)
+                    print("No record found")
+                    print("="*20)
 
             # validating user input
             elif inp == 2:
                 count = 1
+                os.system("cls")
                 for i in json_data:
                     print(f"========== Patient {count} ==========")
                     print(f"ID: {i["id"]}")

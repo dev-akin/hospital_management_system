@@ -1,23 +1,9 @@
-[
-    {
-        "id": 203307,
-        "name": "Sam",
-        "DOB": "2006-01-02",
-        "type": "Patients",
-        "status": true
-    },
-    {
-        "id": 665496,
-        "name": "Sam",
-        "DOB": "2001-10-10",
-        "type": "Patients",
-        "status": true
-    },
-    {
-        "id": 622989,
-        "name": "AKin",
-        "DOB": "2001-02-01",
+{
+    "856566": {
+        "id": 856566,
+        "name": "sam",
+        "DOB": "2001-20-12",
         "type": "Patients",
         "status": true
     }
-]
+}

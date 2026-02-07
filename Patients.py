@@ -73,6 +73,7 @@ class Patients:
                 # searching for user in json file
                 if id in json_data:
                     os.system("cls")
+                    print()
                     print("="*30)
                     print(f"ID: {json_data[id]["id"]}")
                     print(f"Name: {json_data[id]["name"]}")
@@ -93,11 +94,11 @@ class Patients:
                 os.system("cls")
                 for i in json_data:
                     print(f"========== Patient {count} ==========")
-                    print(f"ID: {i["id"]}")
-                    print(f"Name: {i["name"]}")
-                    print(f"DOB: {i["DOB"]}")
-                    print(f"Type: {i["type"]}")
-                    print(f"Status: {i["status"]}")
+                    print(f"ID: {json_data[i]["id"]}")
+                    print(f"Name: {json_data[i]["name"]}")
+                    print(f"DOB: {json_data[i]["DOB"]}")
+                    print(f"Type: {json_data[i]["type"]}")
+                    print(f"Status: {json_data[i]["status"]}")
                     print()
 
                     count += 1
